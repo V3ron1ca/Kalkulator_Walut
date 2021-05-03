@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Przelicznik walut</title>
+</head>
+<body>
+<div id="box">
+    <h2 ><font size="25" ><center>Przelicznik walut</center></font></h2>
+    <form method="post">
+        <center>
+        <table>
+        <tr>
+            <td><input id="from" name="from" type="text" size="15" value="{{kwota}}"/></td>
+            <td>
+                <select id="waluty_do_wyboru" name="waluty_do_wyboru">
+                    {% for waluta, cena in kursy.items() %}
+                    <option value="{{cena}}">{{waluta}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+    </table>
+            <input type="text" id="WYNIK_PL" placeholder="wynik w PLN" size="15" value="{{res}}"/>
+            <input type="submit" value="Przelicz">
+        </center>
+    </form>
+
+
+</div>
+
+</body>
+</html>
