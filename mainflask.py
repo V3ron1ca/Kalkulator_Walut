@@ -29,11 +29,11 @@ def przelicznik():
         for row in csv_reader:
             kursy[row[1]] = row[2]
     if request.method == "POST":
-        p = request.form.get("waluty_do_wyboru", None)
-        if p and p != "bid":
-            p = to_float(p)
+        wybor = request.form.get("waluty_do_wyboru", None)
+        if wybor and wybor != "bid":
+            wybor = to_float(wybor)
             kwota = to_float(request.form.get("from", 1))
-            result = p * kwota
+            result = wybor * kwota
             return render_template("przelicznik.html", kursy=kursy, result=result, kwota=kwota)
 
     return render_template("przelicznik.html", kursy=kursy, result="", kwota="")
